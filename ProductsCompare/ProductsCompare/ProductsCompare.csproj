@@ -45,7 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="DataSources\CsvSource.cs" />
+    <Compile Include="DataSources\IDataSource.cs" />
+    <Compile Include="DataSources\ProductWrapper.cs" />
+    <Compile Include="DataSources\SqlSource.cs" />
+    <Compile Include="DataSources\XmlSource.cs" />
+    <Compile Include="Extensions\SqlCommandExtensions.cs" />
+    <Compile Include="Extensions\SqlDataReadedExtensions.cs" />
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">

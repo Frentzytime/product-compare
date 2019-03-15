@@ -5,5 +5,7 @@ namespace ProductsCompare.DataSources
 	public interface IDataSource
 	{
 		IList<ProductWrapper> GetAll();
+
+		bool TestConnection();
 	}
 }

@@ -17,5 +17,10 @@ namespace ProductsCompare.DataSources
 
 			return results;
 		}
+
+		public bool TestConnection()
+		{
+			return false;
+		}
 	}
 }
