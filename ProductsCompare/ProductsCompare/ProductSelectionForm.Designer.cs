@@ -28,130 +28,91 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroupa", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroupb", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "fs",
-            "a",
-            "b"}, -1);
-			System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("fsa");
-			System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("gas");
-			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-			this.checkBoxSqlServer = new System.Windows.Forms.CheckBox();
-			this.textBoxSqlServer = new System.Windows.Forms.TextBox();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.checkBoxCsvFile = new System.Windows.Forms.CheckBox();
-			this.textBoxCsvFile = new System.Windows.Forms.TextBox();
-			this.panel3 = new System.Windows.Forms.Panel();
-			this.checkBoxXmlFile = new System.Windows.Forms.CheckBox();
-			this.textBoxXmlFile = new System.Windows.Forms.TextBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.buttonCompare = new System.Windows.Forms.Button();
+			this.splitContainer = new System.Windows.Forms.SplitContainer();
 			this.buttonFetch = new System.Windows.Forms.Button();
+			this.panelXml = new System.Windows.Forms.Panel();
+			this.textBoxXmlFile = new System.Windows.Forms.TextBox();
+			this.checkBoxXmlFile = new System.Windows.Forms.CheckBox();
+			this.panelCsv = new System.Windows.Forms.Panel();
+			this.textBoxCsvFile = new System.Windows.Forms.TextBox();
+			this.checkBoxCsvFile = new System.Windows.Forms.CheckBox();
+			this.panelSql = new System.Windows.Forms.Panel();
+			this.textBoxSqlServer = new System.Windows.Forms.TextBox();
+			this.checkBoxSqlServer = new System.Windows.Forms.CheckBox();
 			this.listViewProducts = new System.Windows.Forms.ListView();
-			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-			this.splitContainer1.Panel1.SuspendLayout();
-			this.splitContainer1.Panel2.SuspendLayout();
-			this.splitContainer1.SuspendLayout();
-			this.panel1.SuspendLayout();
-			this.panel2.SuspendLayout();
-			this.panel3.SuspendLayout();
+			this.buttonCompare = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
+			this.buttonBrowseCsv = new System.Windows.Forms.Button();
+			this.buttonBrowseXml = new System.Windows.Forms.Button();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
+			this.splitContainer.Panel1.SuspendLayout();
+			this.splitContainer.Panel2.SuspendLayout();
+			this.splitContainer.SuspendLayout();
+			this.panelXml.SuspendLayout();
+			this.panelCsv.SuspendLayout();
+			this.panelSql.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// splitContainer1
+			// splitContainer
 			// 
-			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-			this.splitContainer1.Name = "splitContainer1";
+			this.splitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.splitContainer.Location = new System.Drawing.Point(0, 0);
+			this.splitContainer.Name = "splitContainer";
 			// 
-			// splitContainer1.Panel1
+			// splitContainer.Panel1
 			// 
-			this.splitContainer1.Panel1.Controls.Add(this.buttonFetch);
-			this.splitContainer1.Panel1.Controls.Add(this.panel3);
-			this.splitContainer1.Panel1.Controls.Add(this.panel2);
-			this.splitContainer1.Panel1.Controls.Add(this.panel1);
+			this.splitContainer.Panel1.Controls.Add(this.buttonFetch);
+			this.splitContainer.Panel1.Controls.Add(this.panelXml);
+			this.splitContainer.Panel1.Controls.Add(this.panelCsv);
+			this.splitContainer.Panel1.Controls.Add(this.panelSql);
 			// 
-			// splitContainer1.Panel2
+			// splitContainer.Panel2
 			// 
-			this.splitContainer1.Panel2.Controls.Add(this.listViewProducts);
-			this.splitContainer1.Panel2.Controls.Add(this.buttonCompare);
-			this.splitContainer1.Panel2.Controls.Add(this.label1);
-			this.splitContainer1.Size = new System.Drawing.Size(523, 450);
-			this.splitContainer1.SplitterDistance = 217;
-			this.splitContainer1.TabIndex = 0;
+			this.splitContainer.Panel2.Controls.Add(this.listViewProducts);
+			this.splitContainer.Panel2.Controls.Add(this.buttonCompare);
+			this.splitContainer.Panel2.Controls.Add(this.label1);
+			this.splitContainer.Size = new System.Drawing.Size(523, 450);
+			this.splitContainer.SplitterDistance = 217;
+			this.splitContainer.TabIndex = 0;
 			// 
-			// checkBoxSqlServer
+			// buttonFetch
 			// 
-			this.checkBoxSqlServer.AutoSize = true;
-			this.checkBoxSqlServer.Location = new System.Drawing.Point(3, 3);
-			this.checkBoxSqlServer.Name = "checkBoxSqlServer";
-			this.checkBoxSqlServer.Size = new System.Drawing.Size(81, 17);
-			this.checkBoxSqlServer.TabIndex = 0;
-			this.checkBoxSqlServer.Text = "SQL Server";
-			this.checkBoxSqlServer.UseVisualStyleBackColor = true;
-			this.checkBoxSqlServer.CheckedChanged += new System.EventHandler(this.checkBoxSqlServer_CheckedChanged);
+			this.buttonFetch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.buttonFetch.Location = new System.Drawing.Point(10, 415);
+			this.buttonFetch.Name = "buttonFetch";
+			this.buttonFetch.Size = new System.Drawing.Size(75, 23);
+			this.buttonFetch.TabIndex = 3;
+			this.buttonFetch.Text = "Fetch";
+			this.buttonFetch.UseVisualStyleBackColor = true;
+			this.buttonFetch.Click += new System.EventHandler(this.buttonFetch_Click);
 			// 
-			// textBoxSqlServer
+			// panelXml
 			// 
-			this.textBoxSqlServer.Location = new System.Drawing.Point(0, 28);
-			this.textBoxSqlServer.Name = "textBoxSqlServer";
-			this.textBoxSqlServer.Size = new System.Drawing.Size(197, 20);
-			this.textBoxSqlServer.TabIndex = 1;
-			this.textBoxSqlServer.Text = "data source=localhost\\sqlexpress; initial catalog=Product-Compare;persist securit" +
-    "y info=True; Integrated Security=SSPI;";
+			this.panelXml.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.panelXml.Controls.Add(this.buttonBrowseXml);
+			this.panelXml.Controls.Add(this.textBoxXmlFile);
+			this.panelXml.Controls.Add(this.checkBoxXmlFile);
+			this.panelXml.Location = new System.Drawing.Point(10, 112);
+			this.panelXml.Name = "panelXml";
+			this.panelXml.Size = new System.Drawing.Size(200, 50);
+			this.panelXml.TabIndex = 2;
 			// 
-			// panel1
+			// textBoxXmlFile
 			// 
-			this.panel1.BackColor = System.Drawing.SystemColors.Control;
-			this.panel1.Controls.Add(this.textBoxSqlServer);
-			this.panel1.Controls.Add(this.checkBoxSqlServer);
-			this.panel1.Location = new System.Drawing.Point(10, 4);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(200, 50);
-			this.panel1.TabIndex = 0;
-			// 
-			// panel2
-			// 
-			this.panel2.Controls.Add(this.textBoxCsvFile);
-			this.panel2.Controls.Add(this.checkBoxCsvFile);
-			this.panel2.Location = new System.Drawing.Point(10, 58);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(200, 50);
-			this.panel2.TabIndex = 1;
-			// 
-			// checkBoxCsvFile
-			// 
-			this.checkBoxCsvFile.AutoSize = true;
-			this.checkBoxCsvFile.Location = new System.Drawing.Point(3, 3);
-			this.checkBoxCsvFile.Name = "checkBoxCsvFile";
-			this.checkBoxCsvFile.Size = new System.Drawing.Size(66, 17);
-			this.checkBoxCsvFile.TabIndex = 0;
-			this.checkBoxCsvFile.Text = "CSV File";
-			this.checkBoxCsvFile.UseVisualStyleBackColor = true;
-			this.checkBoxCsvFile.CheckedChanged += new System.EventHandler(this.checkBoxCsvFile_CheckedChanged);
-			// 
-			// textBoxCsvFile
-			// 
-			this.textBoxCsvFile.Location = new System.Drawing.Point(1, 28);
-			this.textBoxCsvFile.Name = "textBoxCsvFile";
-			this.textBoxCsvFile.Size = new System.Drawing.Size(197, 20);
-			this.textBoxCsvFile.TabIndex = 1;
-			// 
-			// panel3
-			// 
-			this.panel3.Controls.Add(this.textBoxXmlFile);
-			this.panel3.Controls.Add(this.checkBoxXmlFile);
-			this.panel3.Location = new System.Drawing.Point(10, 116);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(200, 50);
-			this.panel3.TabIndex = 2;
+			this.textBoxXmlFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.textBoxXmlFile.Location = new System.Drawing.Point(1, 28);
+			this.textBoxXmlFile.Name = "textBoxXmlFile";
+			this.textBoxXmlFile.Size = new System.Drawing.Size(196, 20);
+			this.textBoxXmlFile.TabIndex = 1;
 			// 
 			// checkBoxXmlFile
 			// 
 			this.checkBoxXmlFile.AutoSize = true;
-			this.checkBoxXmlFile.Location = new System.Drawing.Point(3, 3);
+			this.checkBoxXmlFile.Location = new System.Drawing.Point(3, 8);
 			this.checkBoxXmlFile.Name = "checkBoxXmlFile";
 			this.checkBoxXmlFile.Size = new System.Drawing.Size(67, 17);
 			this.checkBoxXmlFile.TabIndex = 0;
@@ -159,12 +120,95 @@
 			this.checkBoxXmlFile.UseVisualStyleBackColor = true;
 			this.checkBoxXmlFile.CheckedChanged += new System.EventHandler(this.checkBoxXmlFile_CheckedChanged);
 			// 
-			// textBoxXmlFile
+			// panelCsv
 			// 
-			this.textBoxXmlFile.Location = new System.Drawing.Point(1, 28);
-			this.textBoxXmlFile.Name = "textBoxXmlFile";
-			this.textBoxXmlFile.Size = new System.Drawing.Size(198, 20);
-			this.textBoxXmlFile.TabIndex = 1;
+			this.panelCsv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.panelCsv.Controls.Add(this.buttonBrowseCsv);
+			this.panelCsv.Controls.Add(this.textBoxCsvFile);
+			this.panelCsv.Controls.Add(this.checkBoxCsvFile);
+			this.panelCsv.Location = new System.Drawing.Point(10, 56);
+			this.panelCsv.Name = "panelCsv";
+			this.panelCsv.Size = new System.Drawing.Size(200, 50);
+			this.panelCsv.TabIndex = 1;
+			// 
+			// textBoxCsvFile
+			// 
+			this.textBoxCsvFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.textBoxCsvFile.Location = new System.Drawing.Point(1, 28);
+			this.textBoxCsvFile.Name = "textBoxCsvFile";
+			this.textBoxCsvFile.Size = new System.Drawing.Size(196, 20);
+			this.textBoxCsvFile.TabIndex = 1;
+			// 
+			// checkBoxCsvFile
+			// 
+			this.checkBoxCsvFile.AutoSize = true;
+			this.checkBoxCsvFile.Location = new System.Drawing.Point(3, 7);
+			this.checkBoxCsvFile.Name = "checkBoxCsvFile";
+			this.checkBoxCsvFile.Size = new System.Drawing.Size(66, 17);
+			this.checkBoxCsvFile.TabIndex = 0;
+			this.checkBoxCsvFile.Text = "CSV File";
+			this.checkBoxCsvFile.UseVisualStyleBackColor = true;
+			this.checkBoxCsvFile.CheckedChanged += new System.EventHandler(this.checkBoxCsvFile_CheckedChanged);
+			// 
+			// panelSql
+			// 
+			this.panelSql.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.panelSql.BackColor = System.Drawing.SystemColors.Control;
+			this.panelSql.Controls.Add(this.textBoxSqlServer);
+			this.panelSql.Controls.Add(this.checkBoxSqlServer);
+			this.panelSql.Location = new System.Drawing.Point(10, 2);
+			this.panelSql.Name = "panelSql";
+			this.panelSql.Size = new System.Drawing.Size(200, 50);
+			this.panelSql.TabIndex = 0;
+			// 
+			// textBoxSqlServer
+			// 
+			this.textBoxSqlServer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.textBoxSqlServer.Location = new System.Drawing.Point(0, 28);
+			this.textBoxSqlServer.Name = "textBoxSqlServer";
+			this.textBoxSqlServer.Size = new System.Drawing.Size(197, 20);
+			this.textBoxSqlServer.TabIndex = 1;
+			this.textBoxSqlServer.Text = "data source=localhost\\sqlexpress; initial catalog=Product-Compare;persist securit" +
+    "y info=True; Integrated Security=SSPI;";
+			// 
+			// checkBoxSqlServer
+			// 
+			this.checkBoxSqlServer.AutoSize = true;
+			this.checkBoxSqlServer.Location = new System.Drawing.Point(3, 8);
+			this.checkBoxSqlServer.Name = "checkBoxSqlServer";
+			this.checkBoxSqlServer.Size = new System.Drawing.Size(81, 17);
+			this.checkBoxSqlServer.TabIndex = 0;
+			this.checkBoxSqlServer.Text = "SQL Server";
+			this.checkBoxSqlServer.UseVisualStyleBackColor = true;
+			this.checkBoxSqlServer.CheckedChanged += new System.EventHandler(this.checkBoxSqlServer_CheckedChanged);
+			// 
+			// listViewProducts
+			// 
+			this.listViewProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.listViewProducts.CheckBoxes = true;
+			this.listViewProducts.Location = new System.Drawing.Point(3, 24);
+			this.listViewProducts.Name = "listViewProducts";
+			this.listViewProducts.Size = new System.Drawing.Size(287, 385);
+			this.listViewProducts.TabIndex = 4;
+			this.listViewProducts.UseCompatibleStateImageBehavior = false;
+			this.listViewProducts.View = System.Windows.Forms.View.Details;
+			// 
+			// buttonCompare
+			// 
+			this.buttonCompare.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.buttonCompare.Location = new System.Drawing.Point(3, 415);
+			this.buttonCompare.Name = "buttonCompare";
+			this.buttonCompare.Size = new System.Drawing.Size(85, 23);
+			this.buttonCompare.TabIndex = 3;
+			this.buttonCompare.Text = "Compare";
+			this.buttonCompare.UseVisualStyleBackColor = true;
+			this.buttonCompare.Click += new System.EventHandler(this.buttonCompare_Click);
 			// 
 			// label1
 			// 
@@ -175,98 +219,73 @@
 			this.label1.TabIndex = 2;
 			this.label1.Text = "Select products for comparison";
 			// 
-			// buttonCompare
+			// buttonBrowseCsv
 			// 
-			this.buttonCompare.Location = new System.Drawing.Point(7, 412);
-			this.buttonCompare.Name = "buttonCompare";
-			this.buttonCompare.Size = new System.Drawing.Size(85, 23);
-			this.buttonCompare.TabIndex = 3;
-			this.buttonCompare.Text = "Compare";
-			this.buttonCompare.UseVisualStyleBackColor = true;
-			this.buttonCompare.Click += new System.EventHandler(this.buttonCompare_Click);
+			this.buttonBrowseCsv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonBrowseCsv.Font = new System.Drawing.Font("Segoe UI", 6.85F);
+			this.buttonBrowseCsv.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.buttonBrowseCsv.Location = new System.Drawing.Point(140, 5);
+			this.buttonBrowseCsv.Margin = new System.Windows.Forms.Padding(0);
+			this.buttonBrowseCsv.Name = "buttonBrowseCsv";
+			this.buttonBrowseCsv.Size = new System.Drawing.Size(57, 20);
+			this.buttonBrowseCsv.TabIndex = 2;
+			this.buttonBrowseCsv.Text = "Browse";
+			this.buttonBrowseCsv.UseVisualStyleBackColor = true;
+			this.buttonBrowseCsv.Click += new System.EventHandler(this.buttonBrowseCsv_Click);
 			// 
-			// buttonFetch
+			// buttonBrowseXml
 			// 
-			this.buttonFetch.Location = new System.Drawing.Point(10, 411);
-			this.buttonFetch.Name = "buttonFetch";
-			this.buttonFetch.Size = new System.Drawing.Size(75, 23);
-			this.buttonFetch.TabIndex = 3;
-			this.buttonFetch.Text = "Fetch";
-			this.buttonFetch.UseVisualStyleBackColor = true;
-			this.buttonFetch.Click += new System.EventHandler(this.buttonFetch_Click);
-			// 
-			// listViewProducts
-			// 
-			this.listViewProducts.CheckBoxes = true;
-			this.listViewProducts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1});
-			listViewGroup1.Header = "ListViewGroupa";
-			listViewGroup1.Name = "listViewGroup1";
-			listViewGroup2.Header = "ListViewGroupb";
-			listViewGroup2.Name = "listViewGroup2";
-			this.listViewProducts.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2});
-			listViewItem1.Group = listViewGroup1;
-			listViewItem1.StateImageIndex = 0;
-			listViewItem2.Group = listViewGroup2;
-			listViewItem2.StateImageIndex = 0;
-			listViewItem3.Group = listViewGroup1;
-			listViewItem3.StateImageIndex = 0;
-			this.listViewProducts.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3});
-			this.listViewProducts.Location = new System.Drawing.Point(3, 24);
-			this.listViewProducts.Name = "listViewProducts";
-			this.listViewProducts.Size = new System.Drawing.Size(287, 382);
-			this.listViewProducts.TabIndex = 4;
-			this.listViewProducts.UseCompatibleStateImageBehavior = false;
-			this.listViewProducts.View = System.Windows.Forms.View.Details;
-			// 
-			// columnHeader1
-			// 
-			this.columnHeader1.Text = "";
+			this.buttonBrowseXml.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonBrowseXml.Font = new System.Drawing.Font("Segoe UI", 6.85F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.buttonBrowseXml.Location = new System.Drawing.Point(140, 5);
+			this.buttonBrowseXml.Margin = new System.Windows.Forms.Padding(0);
+			this.buttonBrowseXml.Name = "buttonBrowseXml";
+			this.buttonBrowseXml.Size = new System.Drawing.Size(57, 20);
+			this.buttonBrowseXml.TabIndex = 3;
+			this.buttonBrowseXml.Text = "Browse";
+			this.buttonBrowseXml.UseVisualStyleBackColor = true;
+			this.buttonBrowseXml.Click += new System.EventHandler(this.buttonBrowseXml_Click);
 			// 
 			// ProductSelectionForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(523, 450);
-			this.Controls.Add(this.splitContainer1);
+			this.Controls.Add(this.splitContainer);
 			this.Name = "ProductSelectionForm";
 			this.Text = "ProductSelectionForm";
-			this.splitContainer1.Panel1.ResumeLayout(false);
-			this.splitContainer1.Panel2.ResumeLayout(false);
-			this.splitContainer1.Panel2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-			this.splitContainer1.ResumeLayout(false);
-			this.panel1.ResumeLayout(false);
-			this.panel1.PerformLayout();
-			this.panel2.ResumeLayout(false);
-			this.panel2.PerformLayout();
-			this.panel3.ResumeLayout(false);
-			this.panel3.PerformLayout();
+			this.splitContainer.Panel1.ResumeLayout(false);
+			this.splitContainer.Panel2.ResumeLayout(false);
+			this.splitContainer.Panel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
+			this.splitContainer.ResumeLayout(false);
+			this.panelXml.ResumeLayout(false);
+			this.panelXml.PerformLayout();
+			this.panelCsv.ResumeLayout(false);
+			this.panelCsv.PerformLayout();
+			this.panelSql.ResumeLayout(false);
+			this.panelSql.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.SplitContainer splitContainer1;
-		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.SplitContainer splitContainer;
+		private System.Windows.Forms.Panel panelCsv;
 		private System.Windows.Forms.TextBox textBoxCsvFile;
 		private System.Windows.Forms.CheckBox checkBoxCsvFile;
-		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Panel panelSql;
 		private System.Windows.Forms.TextBox textBoxSqlServer;
 		private System.Windows.Forms.CheckBox checkBoxSqlServer;
-		private System.Windows.Forms.Panel panel3;
+		private System.Windows.Forms.Panel panelXml;
 		private System.Windows.Forms.TextBox textBoxXmlFile;
 		private System.Windows.Forms.CheckBox checkBoxXmlFile;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button buttonCompare;
 		private System.Windows.Forms.Button buttonFetch;
 		private System.Windows.Forms.ListView listViewProducts;
-		private System.Windows.Forms.ColumnHeader columnHeader1;
+		private System.Windows.Forms.Button buttonBrowseXml;
+		private System.Windows.Forms.Button buttonBrowseCsv;
 	}
 }

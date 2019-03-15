@@ -33,7 +33,7 @@ namespace ProductsCompare
 				var panel = new Panel();
 				panel.BackColor = Color.Transparent;
 				panel.Height = flowLayoutPanelProducts.Height - 18;
-				panel.Location = Point.Empty;
+				panel.Location = new Point(0, 0);
 				panel.Margin = Padding.Empty;
 
 				var name = new Label() { Text = product.Product.Name };
