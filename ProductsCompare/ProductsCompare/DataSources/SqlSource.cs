@@ -100,7 +100,7 @@ namespace ProductsCompare.DataSources
 					while (reader.Read())
 					{
 						var sectionId = 0; if (!reader.IsDBNull("Id")) { sectionId = reader.GetInt32("Id"); }
-						var sectionName = ""; if (reader.IsDBNull("Name")) { sectionName = reader.GetString("Name"); }
+						var sectionName = ""; if (!reader.IsDBNull("Name")) { sectionName = reader.GetString("Name"); }
 
 						var section = new Section(sectionName);
 						section.AddRange(GetProperties(productId, sectionId));
