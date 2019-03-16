@@ -14,10 +14,12 @@ namespace ProductsCompare
 	public partial class ProductsComparationForm : Form
 	{
 		private IList<ProductWrapper> _wrappers;
+		private bool _highlightDifferences = true;
 
 		public ProductsComparationForm()
 		{
 			InitializeComponent();
+			checkBoxHighlightDifferences.Checked = _highlightDifferences;
 		}
 
 		public void Feed(IList<ProductWrapper> products)
@@ -28,6 +30,7 @@ namespace ProductsCompare
 
 		private void Populate()
 		{
+			flowLayoutPanelProducts.Controls.Clear();
 			foreach (var product in _wrappers)
 			{
 				var panel = new Panel();
@@ -47,13 +50,26 @@ namespace ProductsCompare
 				tv.Height = panel.Height - name.Height - 2;
 				tv.Margin = Padding.Empty;
 				tv.BorderStyle = BorderStyle.None;
-				tv.BackColor = Color.Empty;
+				tv.BackColor = Color.WhiteSmoke;
+				tv.Anchor = AnchorStyles.Bottom | AnchorStyles.Top;
 				foreach (var section in product.Product.Sections)
 				{
 					var tn = new TreeNode(section.Name);
 					foreach (var property in section.Properties)
 					{
-						tn.Nodes.Add(new TreeNode($"{property.Attribute}: {property.Value}"));
+						var tnp = new TreeNode($"{property.Attribute}: {property.Value}");
+						if (_highlightDifferences)
+						{
+							foreach (var pro in _wrappers)
+							{
+								if (!pro.Product.Contains(property))
+								{
+									tnp.BackColor = Color.Wheat;
+									break;
+								}
+							}
+						}
+						tn.Nodes.Add(tnp);
 					}
 					tv.Nodes.Add(tn);
 				}
@@ -62,6 +78,31 @@ namespace ProductsCompare
 
 				flowLayoutPanelProducts.Controls.Add(panel);
 			}
+		}
+
+		#region Events
+		private void ProductsComparationForm_SizeChanged(object sender, EventArgs e)
+		{
+			foreach (var ctrl in flowLayoutPanelProducts.Controls)
+			{
+				var panel = ctrl as Panel;
+				if (panel != null)
+				{
+					panel.Height = flowLayoutPanelProducts.Height - 18;
+				}
+			}
+		}
+		#endregion
+
+		private void checkBoxHighlightDifferences_CheckedChanged(object sender, EventArgs e)
+		{
+			_highlightDifferences = checkBoxHighlightDifferences.Checked;
+			updateProductDifferences();
+		}
+
+		private void updateProductDifferences()
+		{
+			Populate();
 		}
 	}
 }
