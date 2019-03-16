@@ -125,7 +125,7 @@ namespace ProductsCompare
 			this.Hide();
 			var compare = new ProductsComparationForm();
 			compare.FormClosed += (s, args) => this.Show();
-			compare.Feed(_wrappers);
+			compare.Feed(_wrappers.Where(x => x.Selected).ToList());
 			compare.Show();
 		}
 		#endregion
@@ -176,21 +176,48 @@ namespace ProductsCompare
 
 		private void PopulateListView()
 		{
-			var column = new ColumnHeader();
-			column.Text = "Name";
+			var colName = new ColumnHeader();
+			colName.Text = "Name";
+			listViewProducts.Columns.Add(colName);
 
-			listViewProducts.Columns.Add(column);
+			var colSource = new ColumnHeader();
+			colSource.Text = "Source";
+			listViewProducts.Columns.Add(colSource);
 
 			foreach (var item in _wrappers)
 			{
-				var group = new ListViewGroup(item.Product.Category.ToLower(), item.Product.Category);
-				if (!listViewProducts.Groups.Contains(group))
+				var group = new ListViewGroup();
+				var found = false;
+				foreach (ListViewGroup gr in listViewProducts.Groups)
 				{
+					if (gr.Name == item.Product.Category.ToLower())
+					{
+						found = true;
+						group = gr;
+						break;
+					}
+				}
+				if (!found) {
+					group = new ListViewGroup(item.Product.Category.ToLower(), item.Product.Category);
 					listViewProducts.Groups.Add(group);
 				}
 
+				
 				var lvi = new ListViewItem(item.Product.Name, group);
+				lvi.Tag = item.Product.Id.ToString();
+				lvi.SubItems.Add(new ListViewItem.ListViewSubItem(lvi, item.Source.ToString()));
 				listViewProducts.Items.Add(lvi);
+
+				group.Header = $"{item.Product.Category} ({group.Items.Count})";
+			}
+		}
+
+		private void listViewProducts_ItemChecked(object sender, ItemCheckedEventArgs e)
+		{
+			var prod = _wrappers.First(x => x.Product.Id.ToString() == e.Item.Tag.ToString());
+			if (prod != null)
+			{
+				prod.Selected = e.Item.Checked;
 			}
 		}
 	}

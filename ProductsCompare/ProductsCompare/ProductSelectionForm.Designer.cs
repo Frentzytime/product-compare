@@ -31,9 +31,11 @@
 			this.splitContainer = new System.Windows.Forms.SplitContainer();
 			this.buttonFetch = new System.Windows.Forms.Button();
 			this.panelXml = new System.Windows.Forms.Panel();
+			this.buttonBrowseXml = new System.Windows.Forms.Button();
 			this.textBoxXmlFile = new System.Windows.Forms.TextBox();
 			this.checkBoxXmlFile = new System.Windows.Forms.CheckBox();
 			this.panelCsv = new System.Windows.Forms.Panel();
+			this.buttonBrowseCsv = new System.Windows.Forms.Button();
 			this.textBoxCsvFile = new System.Windows.Forms.TextBox();
 			this.checkBoxCsvFile = new System.Windows.Forms.CheckBox();
 			this.panelSql = new System.Windows.Forms.Panel();
@@ -42,8 +44,6 @@
 			this.listViewProducts = new System.Windows.Forms.ListView();
 			this.buttonCompare = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
-			this.buttonBrowseCsv = new System.Windows.Forms.Button();
-			this.buttonBrowseXml = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
 			this.splitContainer.Panel1.SuspendLayout();
 			this.splitContainer.Panel2.SuspendLayout();
@@ -100,18 +100,33 @@
 			this.panelXml.Size = new System.Drawing.Size(200, 50);
 			this.panelXml.TabIndex = 2;
 			// 
+			// buttonBrowseXml
+			// 
+			this.buttonBrowseXml.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonBrowseXml.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.buttonBrowseXml.Location = new System.Drawing.Point(131, 27);
+			this.buttonBrowseXml.Margin = new System.Windows.Forms.Padding(0);
+			this.buttonBrowseXml.Name = "buttonBrowseXml";
+			this.buttonBrowseXml.Size = new System.Drawing.Size(66, 22);
+			this.buttonBrowseXml.TabIndex = 3;
+			this.buttonBrowseXml.Text = "Browse";
+			this.buttonBrowseXml.UseVisualStyleBackColor = true;
+			this.buttonBrowseXml.Click += new System.EventHandler(this.buttonBrowseXml_Click);
+			// 
 			// textBoxXmlFile
 			// 
 			this.textBoxXmlFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.textBoxXmlFile.Location = new System.Drawing.Point(1, 28);
 			this.textBoxXmlFile.Name = "textBoxXmlFile";
-			this.textBoxXmlFile.Size = new System.Drawing.Size(196, 20);
+			this.textBoxXmlFile.Size = new System.Drawing.Size(127, 20);
 			this.textBoxXmlFile.TabIndex = 1;
 			// 
 			// checkBoxXmlFile
 			// 
 			this.checkBoxXmlFile.AutoSize = true;
+			this.checkBoxXmlFile.Checked = true;
+			this.checkBoxXmlFile.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.checkBoxXmlFile.Location = new System.Drawing.Point(3, 8);
 			this.checkBoxXmlFile.Name = "checkBoxXmlFile";
 			this.checkBoxXmlFile.Size = new System.Drawing.Size(67, 17);
@@ -132,13 +147,27 @@
 			this.panelCsv.Size = new System.Drawing.Size(200, 50);
 			this.panelCsv.TabIndex = 1;
 			// 
+			// buttonBrowseCsv
+			// 
+			this.buttonBrowseCsv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonBrowseCsv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.buttonBrowseCsv.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.buttonBrowseCsv.Location = new System.Drawing.Point(131, 27);
+			this.buttonBrowseCsv.Margin = new System.Windows.Forms.Padding(0);
+			this.buttonBrowseCsv.Name = "buttonBrowseCsv";
+			this.buttonBrowseCsv.Size = new System.Drawing.Size(66, 22);
+			this.buttonBrowseCsv.TabIndex = 2;
+			this.buttonBrowseCsv.Text = "Browse";
+			this.buttonBrowseCsv.UseVisualStyleBackColor = true;
+			this.buttonBrowseCsv.Click += new System.EventHandler(this.buttonBrowseCsv_Click);
+			// 
 			// textBoxCsvFile
 			// 
 			this.textBoxCsvFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.textBoxCsvFile.Location = new System.Drawing.Point(1, 28);
 			this.textBoxCsvFile.Name = "textBoxCsvFile";
-			this.textBoxCsvFile.Size = new System.Drawing.Size(196, 20);
+			this.textBoxCsvFile.Size = new System.Drawing.Size(127, 20);
 			this.textBoxCsvFile.TabIndex = 1;
 			// 
 			// checkBoxCsvFile
@@ -178,6 +207,8 @@
 			// checkBoxSqlServer
 			// 
 			this.checkBoxSqlServer.AutoSize = true;
+			this.checkBoxSqlServer.Checked = true;
+			this.checkBoxSqlServer.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.checkBoxSqlServer.Location = new System.Drawing.Point(3, 8);
 			this.checkBoxSqlServer.Name = "checkBoxSqlServer";
 			this.checkBoxSqlServer.Size = new System.Drawing.Size(81, 17);
@@ -192,12 +223,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.listViewProducts.CheckBoxes = true;
+			this.listViewProducts.FullRowSelect = true;
 			this.listViewProducts.Location = new System.Drawing.Point(3, 24);
 			this.listViewProducts.Name = "listViewProducts";
 			this.listViewProducts.Size = new System.Drawing.Size(287, 385);
 			this.listViewProducts.TabIndex = 4;
 			this.listViewProducts.UseCompatibleStateImageBehavior = false;
 			this.listViewProducts.View = System.Windows.Forms.View.Details;
+			this.listViewProducts.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listViewProducts_ItemChecked);
 			// 
 			// buttonCompare
 			// 
@@ -218,33 +251,6 @@
 			this.label1.Size = new System.Drawing.Size(153, 13);
 			this.label1.TabIndex = 2;
 			this.label1.Text = "Select products for comparison";
-			// 
-			// buttonBrowseCsv
-			// 
-			this.buttonBrowseCsv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonBrowseCsv.Font = new System.Drawing.Font("Segoe UI", 6.85F);
-			this.buttonBrowseCsv.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.buttonBrowseCsv.Location = new System.Drawing.Point(140, 5);
-			this.buttonBrowseCsv.Margin = new System.Windows.Forms.Padding(0);
-			this.buttonBrowseCsv.Name = "buttonBrowseCsv";
-			this.buttonBrowseCsv.Size = new System.Drawing.Size(57, 20);
-			this.buttonBrowseCsv.TabIndex = 2;
-			this.buttonBrowseCsv.Text = "Browse";
-			this.buttonBrowseCsv.UseVisualStyleBackColor = true;
-			this.buttonBrowseCsv.Click += new System.EventHandler(this.buttonBrowseCsv_Click);
-			// 
-			// buttonBrowseXml
-			// 
-			this.buttonBrowseXml.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonBrowseXml.Font = new System.Drawing.Font("Segoe UI", 6.85F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.buttonBrowseXml.Location = new System.Drawing.Point(140, 5);
-			this.buttonBrowseXml.Margin = new System.Windows.Forms.Padding(0);
-			this.buttonBrowseXml.Name = "buttonBrowseXml";
-			this.buttonBrowseXml.Size = new System.Drawing.Size(57, 20);
-			this.buttonBrowseXml.TabIndex = 3;
-			this.buttonBrowseXml.Text = "Browse";
-			this.buttonBrowseXml.UseVisualStyleBackColor = true;
-			this.buttonBrowseXml.Click += new System.EventHandler(this.buttonBrowseXml_Click);
 			// 
 			// ProductSelectionForm
 			// 

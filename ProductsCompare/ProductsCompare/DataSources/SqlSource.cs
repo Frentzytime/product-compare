@@ -58,7 +58,7 @@ namespace ProductsCompare.DataSources
 							var productCategory = ""; if (!reader.IsDBNull("Category")) { productCategory = reader.GetString("Category"); }
 
 
-							var product = new Product(productName, productCategory);
+							var product = new Product(productId, productName, productCategory);
 							product.AddRange(GetSections(productId));
 
 
