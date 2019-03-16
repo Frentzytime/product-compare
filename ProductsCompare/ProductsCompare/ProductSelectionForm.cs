@@ -197,12 +197,13 @@ namespace ProductsCompare
 						break;
 					}
 				}
-				if (!found) {
+				if (!found)
+				{
 					group = new ListViewGroup(item.Product.Category.ToLower(), item.Product.Category);
 					listViewProducts.Groups.Add(group);
 				}
 
-				
+
 				var lvi = new ListViewItem(item.Product.Name, group);
 				lvi.Tag = item.Product.Id.ToString();
 				lvi.SubItems.Add(new ListViewItem.ListViewSubItem(lvi, item.Source.ToString()));
@@ -214,10 +215,13 @@ namespace ProductsCompare
 
 		private void listViewProducts_ItemChecked(object sender, ItemCheckedEventArgs e)
 		{
-			var prod = _wrappers.First(x => x.Product.Id.ToString() == e.Item.Tag.ToString());
-			if (prod != null)
+			if (e.Item != null && _wrappers != null && _wrappers.Count > 0)
 			{
-				prod.Selected = e.Item.Checked;
+				var prod = _wrappers.First(x => x.Product.Id.ToString() == e.Item.Tag.ToString());
+				if (prod != null)
+				{
+					prod.Selected = e.Item.Checked;
+				}
 			}
 		}
 	}
