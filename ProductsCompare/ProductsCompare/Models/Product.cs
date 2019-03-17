@@ -56,5 +56,7 @@ namespace ProductsCompare
 			}
 			return false;
 		}
+
+		public override string ToString() => $"{Category}/{Name} [{Sections.Count}]";
 	}
 }

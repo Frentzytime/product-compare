@@ -122,9 +122,9 @@ namespace ProductsCompare
 
 		private void buttonCompare_Click(object sender, EventArgs e)
 		{
-			this.Hide();
+			Hide();
 			var compare = new ProductsComparationForm();
-			compare.FormClosed += (s, args) => this.Show();
+			compare.FormClosed += (s, args) => Show();
 			compare.Feed(_wrappers.Where(x => x.Selected).ToList());
 			compare.Show();
 		}
@@ -176,12 +176,30 @@ namespace ProductsCompare
 
 		private void PopulateListView()
 		{
-			var colName = new ColumnHeader();
-			colName.Text = "Name";
+			var colName = new ColumnHeader
+			{
+				Text = "Name",
+				Width = 80
+			};
 			listViewProducts.Columns.Add(colName);
 
-			var colSource = new ColumnHeader();
-			colSource.Text = "Source";
+			var colModel = new ColumnHeader
+			{
+				Text = "Model",
+				Width = 140
+			};
+			listViewProducts.Columns.Add(colModel);
+
+			var colOther = new ColumnHeader
+			{
+				Text = "Other"
+			};
+			listViewProducts.Columns.Add(colOther);
+
+			var colSource = new ColumnHeader
+			{
+				Text = "Source"
+			};
 			listViewProducts.Columns.Add(colSource);
 
 			foreach (var item in _wrappers)
@@ -206,6 +224,25 @@ namespace ProductsCompare
 
 				var lvi = new ListViewItem(item.Product.Name, group);
 				lvi.Tag = item.Product.Id.ToString();
+
+				var atr = item.Product.Properties.Where(
+						x => x.Attribute.ToLower() == "model" ||
+						x.Attribute.ToLower() == "tip procesor" ||
+						x.Attribute.ToLower() == "putere" ||
+						x.Attribute.ToLower() == "volum total"
+					).Take(2);
+				for (int i = 0; i < 2; i++)
+				{
+					var prop = i < atr.Count() ? atr.ElementAt(i) : null;
+					if (prop != null)
+					{
+						lvi.SubItems.Add(new ListViewItem.ListViewSubItem(lvi, prop.Value));
+					}
+					else
+					{
+						lvi.SubItems.Add(new ListViewItem.ListViewSubItem(lvi, ""));
+					}
+				}
 				lvi.SubItems.Add(new ListViewItem.ListViewSubItem(lvi, item.Source.ToString()));
 				listViewProducts.Items.Add(lvi);
 

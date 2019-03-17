@@ -26,5 +26,7 @@ namespace ProductsCompare
 		{
 			(Properties as List<Property>).AddRange(properties);
 		}
+
+		public override string ToString() => $"{Name} [{Properties.Count}]";
 	}
 }

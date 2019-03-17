@@ -1,8 +1,10 @@
 ﻿using Microsoft.VisualBasic.FileIO;
+
+using ProductsCompare.Extensions;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
-using ProductsCompare.Extensions;
 
 namespace ProductsCompare.DataSources
 {
@@ -52,6 +54,7 @@ namespace ProductsCompare.DataSources
 					var p = ParseProduct(prod);
 					results.Add(new ProductWrapper(p, SourceType.Csv));
 				}
+				parser.Close();
 			}
 			catch (Exception)
 			{
@@ -87,7 +90,7 @@ namespace ProductsCompare.DataSources
 			{
 				var secName = str[offset + 0];
 				int.TryParse(str[offset + 1], out int prop_count);
-				var properties = ParseProperties(str.SubArray(2, prop_count*2), prop_count);
+				var properties = ParseProperties(str.SubArray(offset + 2, prop_count*2), prop_count);
 				sections.Add(new Section(properties, secName));
 				offset += 2 + prop_count * 2;
 			}

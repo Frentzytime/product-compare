@@ -1,12 +1,8 @@
 ﻿using ProductsCompare.DataSources;
+
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductsCompare
@@ -33,43 +29,53 @@ namespace ProductsCompare
 			flowLayoutPanelProducts.Controls.Clear();
 			foreach (var product in _wrappers)
 			{
-				var panel = new Panel();
-				panel.BackColor = Color.Transparent;
-				panel.Height = flowLayoutPanelProducts.Height - 18;
-				panel.Location = new Point(0, 0);
-				panel.Margin = Padding.Empty;
+				var panel = new Panel
+				{
+					BackColor = Color.Transparent,
+					Height = flowLayoutPanelProducts.Height - 18,
+					Location = new Point(0, 0),
+					Margin = Padding.Empty
+				};
 
-				var name = new Label() { Text = product.Product.Name };
-				name.Height = 20;
+				var name = new Label()
+				{
+					Text = product.Product.Name,
+					Height = 20
+				};
 				panel.Controls.Add(name);
 
 
-				var tv = new TreeView();
-				tv.Location = new Point(0, name.Location.Y + 24);
-				tv.Width = panel.Width;
-				tv.Height = panel.Height - name.Height - 2;
-				tv.Margin = Padding.Empty;
-				tv.BorderStyle = BorderStyle.None;
-				tv.BackColor = Color.WhiteSmoke;
-				tv.Anchor = AnchorStyles.Bottom | AnchorStyles.Top;
+				var tv = new TreeView
+				{
+					Location = new Point(0, name.Location.Y + 24),
+					Width = panel.Width,
+					Height = panel.Height - name.Height - 2,
+					Margin = Padding.Empty,
+					BorderStyle = BorderStyle.None,
+					BackColor = Color.WhiteSmoke,
+					Anchor = AnchorStyles.Bottom | AnchorStyles.Top
+				};
 				foreach (var section in product.Product.Sections)
 				{
 					var tn = new TreeNode(section.Name);
 					foreach (var property in section.Properties)
 					{
-						var tnp = new TreeNode($"{property.Attribute}: {property.Value}");
-						if (_highlightDifferences)
+						if (!property.IsEmpty)
 						{
-							foreach (var pro in _wrappers)
+							var tnp = new TreeNode(property.ToString());
+							if (_highlightDifferences)
 							{
-								if (!pro.Product.Contains(property))
+								foreach (var pro in _wrappers)
 								{
-									tnp.BackColor = Color.Wheat;
-									break;
+									if (!pro.Product.Contains(property))
+									{
+										tnp.BackColor = Color.Wheat;
+										break;
+									}
 								}
 							}
+							tn.Nodes.Add(tnp);
 						}
-						tn.Nodes.Add(tnp);
 					}
 					tv.Nodes.Add(tn);
 				}
@@ -85,8 +91,7 @@ namespace ProductsCompare
 		{
 			foreach (var ctrl in flowLayoutPanelProducts.Controls)
 			{
-				var panel = ctrl as Panel;
-				if (panel != null)
+				if (ctrl is Panel panel)
 				{
 					panel.Height = flowLayoutPanelProducts.Height - 18;
 				}
